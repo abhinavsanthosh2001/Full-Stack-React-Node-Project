@@ -1,0 +1,20 @@
+{
+  "name": "full-stack-react-node-project",
+  "version": "1.0.0",
+  "description": "Full Stack React Node Project | Build a Notes App from Scratch for your Portfolio",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.3",
+    "nodemon": "^3.1.7"
+  }
+}
