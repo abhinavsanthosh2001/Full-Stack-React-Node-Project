@@ -5,6 +5,7 @@ import auth from  "./routes/authRoute.js"
 import hotels from  "./routes/hotelsRoute.js"
 import users from  "./routes/usersRoute.js"
 import rooms from  "./routes/roomsRoute.js"
+import cookieParser from "cookie-parser"
 
 const app = express()
 
@@ -23,6 +24,7 @@ mongoose.connection.on("disconnected", ()=>{
 })
 
 // middlewares
+app.use(cookieParser());
 app.use(express.json());  // To send json request objects
 
 app.use("/api/auth", auth)
