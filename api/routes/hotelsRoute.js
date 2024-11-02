@@ -15,4 +15,4 @@ router.put("/:id", verifyToken, verifyAdmin, updateHotel);
 //d
 router.delete("/:id", verifyToken, verifyAdmin , deleteHotel);
 
-export default router   
+export default router
