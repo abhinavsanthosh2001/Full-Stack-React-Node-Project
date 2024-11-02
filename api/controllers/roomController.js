@@ -1,6 +1,7 @@
 import Room from "../models/RoomModel.js"
 import Hotel from "../models/HotelModel.js"
 import { createError } from "../utils/error.js";
+import { SuccessMessageDTO } from "../utils/successMessageDTO.js";
 
 export const createRoom = async (req, res, next) => {
     try {
@@ -67,8 +68,8 @@ export const deleteRoom = async (req, res, next) => {
             next(err);
         }
 
-        
-        res.status(200).json({"message":"Room deleted"});
+        const response = SuccessMessageDTO(true, "Room deleted")
+        res.status(200).json(response);
     } catch (error) {
         next(error);
     }

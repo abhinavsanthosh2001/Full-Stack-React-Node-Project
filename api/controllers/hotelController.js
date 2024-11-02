@@ -1,5 +1,6 @@
 import Hotel from "../models/HotelModel.js"
 import { createError } from "../utils/error.js";
+import { SuccessMessageDTO } from "../utils/successMessageDTO.js";
 
 export const createHotel = async (req, res, next) => {
     try {
@@ -44,7 +45,8 @@ export const deleteHotel = async (req, res, next) => {
             return next(createError(404,"Hotel Not Found"));
         }
         
-        res.status(200).json("Hotel deleted");
+        const response = SuccessMessageDTO(true, "Hotel deleted")
+        res.status(200).json(response);
     } catch (error) {
         next(error);
     }

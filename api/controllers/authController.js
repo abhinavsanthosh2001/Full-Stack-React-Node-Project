@@ -2,6 +2,7 @@ import UserModel from "../models/UserModel.js";
 import bcrypt from "bcryptjs";
 import { createError } from "../utils/error.js";
 import jwt from "jsonwebtoken";
+import { SuccessMessageDTO } from "../utils/successMessageDTO.js";
 
 export const register = async (req, res, next) => {
     try {
@@ -14,7 +15,8 @@ export const register = async (req, res, next) => {
             password: hash
         });
         await newUser.save();
-        res.status(201).send("User has been created");
+        const response = SuccessMessageDTO(true, "User Created")
+        res.status(201).json(response);
     } catch (error) {
         next(error);
     }

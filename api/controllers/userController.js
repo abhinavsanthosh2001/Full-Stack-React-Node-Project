@@ -1,5 +1,6 @@
 import User from "../models/UserModel.js"
 import { createError } from "../utils/error.js";
+import { SuccessMessageDTO } from "../utils/successMessageDTO.js";
 
 export const getUsers = async (req, res, next) => {
     try {
@@ -34,7 +35,8 @@ export const deleteUser = async (req, res, next) => {
         if (!deleted) {
             return next(createError(404,"user Not Found"));
         } 
-        res.status(200).json("user deleted");
+        const response = SuccessMessageDTO(true, "User deleted")
+        res.status(200).json(response);
     } catch (error) {
         next(error);
     }
